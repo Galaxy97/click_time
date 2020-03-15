@@ -27,7 +27,8 @@
     "інженер"
   ],
   "colours": {
-    "all": [],
-    "checked": []
+    "red": "#854e4e",
+    "green": "#219653",
+    "blue": "#b5cdec"
   }
 }
