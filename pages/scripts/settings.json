@@ -1,7 +1,7 @@
 {
   "common": {
     "show_time": {
-      "from": "730",
+      "from": "700",
       "for": 900
     },
     "pause": {
