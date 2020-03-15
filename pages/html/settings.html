@@ -90,7 +90,7 @@
                 </div>
                 <div class="for_wrap">
                   <label for="thickness_for">до</label>
-                  <input type="number" id="thickness_for" name="number" min="20" max="50" step="2" value="28">
+                  <input type="number" id="thickness_for" name="number" min="20" max="50" step="2">
                 </div>
               </div>
             </div>
@@ -113,9 +113,9 @@
           </div>
           <div class="settings_content_wrap">
             <div class="colours_menu">
-              <input type="color" name="color" value="#EB5757">
-              <input type="color" name="color" value="#219653">
-              <input type="color" name="color" value="#2F80ED">
+              <input id="red" type="color" name="color">
+              <input id="green" type="color" name="color">
+              <input id="blue" type="color" name="color">
             </div>
           </div>
         </div>
@@ -124,7 +124,6 @@
       </div>
     </main>
     
-    <button onclick="getSetupData()">test</button>
     <script src="../scripts/settings.js"></script>
   </body>
 </html>
