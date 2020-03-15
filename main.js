@@ -1,5 +1,3 @@
-const electron = require("electron");
-
 const { app, BrowserWindow } = require("electron");
 
 function createWindow() {
@@ -11,9 +9,8 @@ function createWindow() {
       nodeIntegration: true
     }
   });
-
   // and load the index.html of the app.
-  win.loadFile("index.html");
+  win.loadFile("./pages/html/index.html");
 }
 
 app.whenReady().then(createWindow);
