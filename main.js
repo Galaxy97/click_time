@@ -1,4 +1,8 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, globalShortcut } = require("electron");
+const realDate = {
+  buttonX: false,
+  buttonC: false
+};
 
 function createWindow() {
   // Create the browser window.
