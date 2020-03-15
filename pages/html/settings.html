@@ -4,6 +4,121 @@
     <meta charset="UTF-8" />
   </head>
   <body>
+    <head>
+      <div class="back_button_wrap">
+        <button class="back_button">
+          <a href="./index.html">Back</a>
+        </button>
+      </div>
+    </head>
+    <main>
+      <div class="settings_wrap">
+        <div class="common_settings">
+          <div class="name_settings_bloc_wrap">
+            <label class="name_settings_bloc">Загальні налаштування</label>
+          </div>
+          <div class="settings_content_wrap">
+            <div class="show_time">
+              <div class="name_settings_wrap">
+                <label class="name_settings">Експозиція</label>
+              </div>
+              <span class="underline"></span>
+              <div class="from_for_wrap">
+                <div class="from_wrap">
+                  <label for="show_time_from">від</label>
+                  <input type="number" id="show_time_from" name="number" min="500" max="900" step="10" value="700">
+                </div>
+                <div class="for_wrap">
+                  <label for="show_time_for">до</label>
+                  <input type="number" id="show_time_for" name="number" min="700" max="1100" step="10" value="900">
+                </div>
+              </div>
+            </div>
+<br>
+            <div class="pause">
+              <div class="name_settings_wrap">
+                <label class="name_settings">Пауза</label>
+              </div>
+              <span class="underline"></span>
+              <div class="from_for_wrap">
+                <div class="from_wrap">
+                  <label for="pause_from">від</label>
+                  <input type="number" id="pause_from" name="number" min="400" max="1900" step="10" value="500">
+                </div>
+                <div class="for_wrap">
+                  <label for="pause_for">до</label>
+                  <input type="number" id="pause_for" name="number" min="500" max="2500" step="10" value="1900">
+                </div>
+              </div>
+            </div>
+<br>
+            <div class="numbers">
+              <div class="name_settings_wrap">
+                <label class="name_settings">Кількість подразників</label>
+              </div>
+              <span class="underline"></span>
+              <div class="from_for_wrap">
+                <div class="from_wrap">
+                  <label for="numbers_from">від</label>
+                  <input type="number" id="numbers_from" name="number" min="5" max="50" step="1" value="10">
+                </div>
+                <div class="for_wrap">
+                  <label for="numbers_for">до</label>
+                  <input type="number" id="numbers_for" name="number" min="10" max="90" step="1" value="50">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <br>
+        <div class="figures_settings">
+          <div class="name_settings_bloc_wrap">
+            <label class="name_settings_bloc">Фігури</label>
+          </div>
+          <div class="settings_content_wrap">
+            <div class="thickness">
+              <div class="name_settings_wrap">
+                <label class="name_settings">Товщина лінії</label>
+              </div>
+              <span class="underline"></span>
+              <div class="from_for_wrap">
+                <div class="from_wrap">
+                  <label for="thickness_from">від</label>
+                  <input type="number" id="thickness_from" name="number" min="2" max="40" step="2" value="7">
+                </div>
+                <div class="for_wrap">
+                  <label for="thickness_for">до</label>
+                  <input type="number" id="thickness_for" name="number" min="20" max="50" step="2" value="28">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="figures_settings">
+          <div class="name_settings_bloc_wrap">
+            <label class="name_settings_bloc">Слова</label>
+          </div>
+          <div class="settings_content_wrap">
+            
+          </div>
+        </div>
+        <br>
+
+        <div class="figures_settings">
+          <div class="name_settings_bloc_wrap">
+            <label class="name_settings_bloc">Кольори</label>
+          </div>
+          <div class="settings_content_wrap">
+            
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </main>
+    
     <button onclick="getSetupData()">test</button>
     <script src="../scripts/settings.js"></script>
   </body>

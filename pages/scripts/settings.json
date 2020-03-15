@@ -3,18 +3,18 @@
     "show_time": {
       "from": 701,
       "for": 900
+    },
+    "pause": {
+      "from": 700,
+      "for": 900
+    },
+    "numbers": {
+      "from": 700,
+      "for": 900
     }
   },
-  "pause": {
-    "from": 700,
-    "for": 900
-  },
-  "numbers": {
-    "from": 700,
-    "for": 900
-  },
   "figures": {
-    "border": {
+    "thickness": {
       "from": 7,
       "for": 90
     }
