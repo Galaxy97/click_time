@@ -1,32 +1,32 @@
-:root{
-    --border-thickness: 10px;
+:root {
+  --border-thickness: 10px;
 }
 
-.figure_wrap{
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.figure_wrap {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.figures{
-    text-align: -webkit-center;
+.figures {
+  text-align: -webkit-center;
 }
 
-#square{
-    display: block;
+#square {
+  display: none;
 }
 
-#circle{
-    display: none;
+#circle {
+  display: none;
 }
 
-#triangle{
-    display: none;
+#triangle {
+  display: none;
 }
 
-#figure{
-    fill:transparent;
-    stroke:red;
-    stroke-width: var(--border-thickness);
+#figure {
+  fill: transparent;
+  stroke: red;
+  stroke-width: var(--border-thickness);
 }

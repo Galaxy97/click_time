@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>figures</title>
-    <link rel="stylesheet" type="text/css" href="../css/figures.css"/>
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="../css/figures.css" />
+  </head>
+  <body>
     <a href="./index.html">back</a>
 
     <div class="figure_wrap">
-        <div class="figures">
-            <div id="square">
-                <svg height="200" width="200">
-                    <polygon points="50,50 50,150 150,150 150,50" id="figure"/>
-                </svg>
-            </div>
-            <div id="circle">
-                <svg width='200' height='200'>
-                    <circle cx='100' cy='100' r='50' id="figure"/>
-                 </svg>
-            </div>
-            <div id="triangle">
-                <svg height="200" width="200">
-                    <polygon points="100,50 50,150 150,150" id="figure"/>
-                </svg>
-            </div>
+      <div class="figures">
+        <div id="square">
+          <svg height="200" width="200">
+            <polygon points="50,50 50,150 150,150 150,50" id="figure_square" />
+          </svg>
         </div>
+        <div id="circle">
+          <svg width="200" height="200">
+            <circle cx="100" cy="100" r="50" id="figure_circle" />
+          </svg>
+        </div>
+        <div id="triangle">
+          <svg height="200" width="200">
+            <polygon points="100,50 50,150 150,150" id="figure_triangle" />
+          </svg>
+        </div>
+      </div>
     </div>
-    
 
-    <script src="../scripts/keyboard.js"></script>
-</body>
+    <button onclick="start()">Start</button>
+    <script src="../scripts/figures.js"></script>
+  </body>
 </html>
