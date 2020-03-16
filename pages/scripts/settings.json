@@ -2,11 +2,11 @@
   "common": {
     "show_time": {
       "from": "700",
-      "for": 900
+      "for": "900"
     },
     "pause": {
       "from": "700",
-      "for": "900"
+      "for": "1900"
     },
     "numbers": {
       "from": 700,

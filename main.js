@@ -7,8 +7,8 @@ const realDate = {
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1040,
+    height: 800,
     webPreferences: {
       nodeIntegration: true
     }

@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Righteous-Regular";
+    src: url("../../fonts/Righteous/Righteous-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("../../fonts/Roboto/Roboto-Regular.ttf");
+}
+
 /* -- main page header`s style -- */
 .settings_button_wrap{
     width: 100vw;
@@ -43,7 +53,7 @@
 }
 
 .logo_wrap > p{
-    font-family: Righteous;
+    font-family: Righteous-Regular;
     font-style: normal;
     font-weight: normal;
     font-size: 48px;
@@ -71,7 +81,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
 
-    font-family: Roboto;
+    font-family: Roboto-Regular;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;

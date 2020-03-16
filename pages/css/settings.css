@@ -1,0 +1,162 @@
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("../../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+/* -- settings page header`s style -- */
+.back_button_wrap{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #2B2E3B;
+}
+
+.back_button{
+    width: 44px;
+    height: 44px;
+    margin-left: 8px;
+    background-image: url("../../img/back.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* -- settings  page content`s style -- */
+.settings_wrap{
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    background-color: #2B2E3B;
+}
+
+.settings_page{
+    width: 90%;
+    max-width: 1040px;
+    margin-top: 10px;
+}
+
+/* -- general style for each setting`s block -- */
+.figures_settings,
+.words_settings,
+.colours_settings{
+    margin-top: 40px;
+}
+
+.colours_settings{
+    margin-bottom: 40px;
+}
+
+.common_settings,
+.figures_settings,
+.words_settings,
+.colours_settings{
+    width: 100%;
+    min-height: 154px;
+    border: 1px solid #000000;
+    box-shadow: 0px 0px 10px #000000;
+    border-radius: 10px;
+}
+
+.name_settings_bloc_wrap{
+    width: inherit;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name_settings_bloc{
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #EEE7E7;
+}
+
+.settings_content_wrap{
+    width: inherit;
+    height: 78px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.name_settings{
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    color: #EEE7E7;
+}
+
+.underline{
+    width: inherit;
+    height: 0px;
+    border: 1px solid #EEE7E7;
+    margin-top: 2px;
+    margin-bottom: 6px;
+}
+
+.from_for_wrap{
+    display: flex;
+}
+
+.from_wrap{
+    margin-right: 20px;
+}
+
+.from_wrap > label,
+.for_wrap > label{
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    color: #EEE7E7;
+    margin-right: .1em;
+}
+
+.from_wrap > input,
+.for_wrap > input{
+    width: 75px;
+    height: 32px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: none;
+    padding-left: .3em;
+
+    text-align: left;
+    font-family: Roboto-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000;
+}
+/*-- castom arrows for input type number --*/
+input[type="number"] {
+    position: relative;
+}
+
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    background: #FFF url(../../img/upAndDownArrow.svg) no-repeat center center;
+    width: 1em;
+    margin-right: .2em;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+input[type="number"]::-webkit-inner-spin-button:hover,
+input[type="number"]::-webkit-inner-spin-button:active{
+    opacity: 1;
+}
+
+/* -- style for block words settings -- */
