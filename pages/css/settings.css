@@ -77,7 +77,6 @@
 }
 
 .settings_content_wrap{
-    width: inherit;
     height: 78px;
     display: flex;
     justify-content: space-around;
@@ -160,5 +159,24 @@ input[type="number"]::-webkit-inner-spin-button:active{
     opacity: 1;
 }
 
-/* -- style for block words settings -- */
+/* -- style for block common settings -- */
+.common_settings > .settings_content_wrap{
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+}
 
+/* -- style for block words settings -- */
+#words{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/* -- style for block colors settings -- */
+input[type="color"] {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+  }
