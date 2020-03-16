@@ -38,17 +38,17 @@ async function setValues() {
       //
       document.getElementById("numbers_from").value = data.common.numbers.from;
       document.getElementById("numbers_from").onchange = () => {
-        data.common.pause.from = document.getElementById("numbers_from").value;
+        data.common.numbers.from = document.getElementById("numbers_from").value;
         files.setData(data).catch(e => console.log(e));
       };
       //
       document.getElementById("numbers_for").value = data.common.numbers.for;
       document.getElementById("numbers_for").onchange = () => {
-        data.common.pause.for = document.getElementById("numbers_for").value;
+        data.common.numbers.for = document.getElementById("numbers_for").value;
         files.setData(data).catch(e => console.log(e));
       };
       //
-
+      /*-- figures -- */
       document.getElementById("thickness_from").value =
         data.figures.thickness.from;
       document.getElementById("thickness_from").onchange = () => {

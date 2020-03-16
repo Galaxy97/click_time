@@ -84,6 +84,7 @@
     align-items: center;
 }
 
+/* -- styles for blocks that determine the interval -- */
 .name_settings{
     font-family: Roboto-Regular;
     font-style: normal;
@@ -160,3 +161,4 @@ input[type="number"]::-webkit-inner-spin-button:active{
 }
 
 /* -- style for block words settings -- */
+

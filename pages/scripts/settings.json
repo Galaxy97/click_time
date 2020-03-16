@@ -5,18 +5,18 @@
       "for": "900"
     },
     "pause": {
-      "from": "700",
-      "for": "1900"
+      "from": "400",
+      "for": "2100"
     },
     "numbers": {
-      "from": 700,
-      "for": 900
+      "from": "50",
+      "for": "90"
     }
   },
   "figures": {
     "thickness": {
-      "from": "14",
-      "for": "50"
+      "from": "22",
+      "for": "40"
     }
   },
   "words": [
