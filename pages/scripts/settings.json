@@ -16,7 +16,7 @@
   "figures": {
     "thickness": {
       "from": "14",
-      "for": 90
+      "for": "50"
     }
   },
   "words": [
@@ -27,7 +27,7 @@
     "інженер"
   ],
   "colours": {
-    "red": "#854e4e",
+    "red": "#be3614",
     "green": "#219653",
     "blue": "#b5cdec"
   }
