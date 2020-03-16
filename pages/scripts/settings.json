@@ -5,8 +5,8 @@
       "for": 900
     },
     "pause": {
-      "from": 700,
-      "for": 900
+      "from": "700",
+      "for": "900"
     },
     "numbers": {
       "from": 700,
@@ -27,8 +27,8 @@
     "інженер"
   ],
   "colours": {
-    "red": "#be3614",
+    "red": "#cb0733",
     "green": "#219653",
-    "blue": "#b5cdec"
+    "blue": "#a5a9fc"
   }
 }
