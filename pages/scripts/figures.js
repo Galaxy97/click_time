@@ -14,6 +14,7 @@ async function start() {
   }
   console.log(figures);
   // ------------------------------------
+  document.getElementById("messeage").style.color = "red";
   document.getElementById("messeage").innerText =
     'тест почнеться, як тільки натиснете клавішу "Л"';
 
@@ -21,55 +22,67 @@ async function start() {
   let begin = false;
   let show = false;
   let unpressOne = false;
-  let unpressTwo = false;
-  let clickOne = false;
-
+  const results = {};
+  // console.log("клавіша K натиснута");
   window.addEventListener("keydown", function(event) {
     if (event.code == "KeyK") {
-      console.log("клавіша K натиснута");
       if (!testIsRunning && !begin) {
         setTimeout(() => {
           testIsRunning = true;
           begin = true;
+          results.begin = performance.now();
         }, 0);
       }
       if (begin) {
         begin = false;
-        document.getElementById("messeage").innerText = "Тест розпочато";
+        document.getElementById("messeage").innerText = `Фігура ${iter +
+          1} з ${repeats}`;
         showFigure(figures[iter]);
         show = true;
+        results[iter] = {
+          begin: performance.now()
+        };
       }
     }
   });
+  // console.log("клавіша K відпущена");
   window.addEventListener("keyup", function(event) {
     if (event.code == "KeyK") {
-      console.log("клавіша K відпущена");
       if (show) {
         unpressOne = true;
+        results[iter].sensor = performance.now();
       }
     }
   });
+  // console.log("клавіша J натиснута");
   window.addEventListener("keydown", function(event) {
     if (event.code == "KeyJ") {
-      console.log("клавіша J натиснута");
       if (unpressOne) {
         hideFigure(figures[iter]);
         show = false;
+        results[iter].moving = performance.now();
       }
     }
   });
+  // console.log("клавіша J відпущена");
   window.addEventListener("keyup", function(event) {
     if (event.code == "KeyJ") {
-      console.log("клавіша J відпущена");
       if (!show) {
+        const pause = getRandomInt(
+          data.common.pause.from,
+          data.common.pause.for
+        );
+        results[iter].pause = pause;
         setTimeout(() => {
           if (iter + 1 != repeats) {
             iter++;
             begin = true;
           } else {
-            alert("end");
+            results.end = performance.now();
+            console.log(results);
+            document.getElementById("messeage").innerText = "Тест завершено";
           }
-        }, 1000);
+        }, pause); // pause
       }
     }
   });
