@@ -1,42 +1,12 @@
 const files = require("modules/../../pages/scripts/files.js");
 
-let btnDown = false;
-let btnLeft = false;
-
-window.addEventListener("keyup", function(event) {
-  if (event.code == "ArrowDown") {
-    console.log("клавіша Down відпущена");
-    btnDown = false;
-  }
-});
-window.addEventListener("keydown", function(event) {
-  if (event.code == "ArrowDown") {
-    console.log("клавіша Down натиснута");
-    btnDown = true;
-  }
-});
-window.addEventListener("keyup", function(event) {
-  if (event.code == "ArrowLeft") {
-    console.log("клавіша Left відпущена");
-    btnLeft = false;
-  }
-});
-window.addEventListener("keydown", function(event) {
-  if (event.code == "ArrowLeft") {
-    console.log("клавіша Left натиснута");
-    btnLeft = true;
-  }
-});
-
 async function start() {
   const data = await files.getData();
   const repeats = getRandomInt(
     data.common.numbers.from,
     data.common.numbers.for
   );
-  let iterator = 0;
-  let show = false;
-  let hide = false;
+  let iter = 0;
   // 0 - square, 1 - circle, 2 - triangle
   const figures = [];
   for (let i = 0; i < repeats; i++) {
@@ -44,36 +14,77 @@ async function start() {
   }
   console.log(figures);
   // ------------------------------------
+  document.getElementById("messeage").innerText =
+    'тест почнеться, як тільки натиснете клавішу "Л"';
 
-  // -------------------- TEST BEGIN -----+++++++++
-  const time_start = performance.now();
-  show = true;
-  const timerId = setInterval(() => {
-    if (iterator == repeats) clearInterval(timerId);
-    if (show) {
-      show = false;
-      showFigure(figures[iterator]);
+  let testIsRunning = false;
+  let begin = false;
+  let show = false;
+  let unpressOne = false;
+  let unpressTwo = false;
+  let clickOne = false;
+
+  window.addEventListener("keydown", function(event) {
+    if (event.code == "KeyK") {
+      console.log("клавіша K натиснута");
+      if (!testIsRunning && !begin) {
+        setTimeout(() => {
+          testIsRunning = true;
+          begin = true;
+        }, 0);
+      }
+      if (begin) {
+        begin = false;
+        document.getElementById("messeage").innerText = "Тест розпочато";
+        showFigure(figures[iter]);
+        show = true;
+      }
     }
-    if (hide) {
-      hide = false;
-      hideFigure(figures[iterator]);
+  });
+  window.addEventListener("keyup", function(event) {
+    if (event.code == "KeyK") {
+      console.log("клавіша K відпущена");
+      if (show) {
+        unpressOne = true;
+      }
     }
-  }, 0);
-  const time_end = performance.now();
-  console.log(time_end - time_start);
-  // -------------------- TEST END -----============
+  });
+  window.addEventListener("keydown", function(event) {
+    if (event.code == "KeyJ") {
+      console.log("клавіша J натиснута");
+      if (unpressOne) {
+        hideFigure(figures[iter]);
+        show = false;
+      }
+    }
+  });
+  window.addEventListener("keyup", function(event) {
+    if (event.code == "KeyJ") {
+      console.log("клавіша J відпущена");
+      if (!show) {
+        setTimeout(() => {
+          if (iter + 1 != repeats) {
+            iter++;
+            begin = true;
+          } else {
+            alert("end");
+          }
+        }, 1000);
+      }
+    }
+  });
 }
 
 function showFigure(type) {
   switch (type) {
     case 0:
-      document.getElementById('square').style.display = 'block';
+      document.getElementById("square").style.display = "block";
       break;
     case 1:
-      document.getElementById('circle').style.display = 'block';
+      document.getElementById("circle").style.display = "block";
       break;
     case 2:
-      document.getElementById('triangle').style.display = 'block';
+      document.getElementById("triangle").style.display = "block";
       break;
   }
 }
@@ -81,13 +92,13 @@ function showFigure(type) {
 function hideFigure(type) {
   switch (type) {
     case 0:
-      document.getElementById('square').style.display = 'none';
+      document.getElementById("square").style.display = "none";
       break;
     case 1:
-      document.getElementById('circle').style.display = 'none';
+      document.getElementById("circle").style.display = "none";
       break;
     case 2:
-      document.getElementById('triangle').style.display = 'none';
+      document.getElementById("triangle").style.display = "none";
       break;
   }
 }
