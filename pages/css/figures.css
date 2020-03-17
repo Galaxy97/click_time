@@ -1,34 +1,36 @@
-:root{
-    --border-thickness: 10px;
+:root {
+  --border-thickness: 10px;
 }
 
-.figure_wrap{
-    width: 100vw;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000000;
+.figure_wrap {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
 }
 
-.figures{
-    text-align: -webkit-center;
+.figures {
+  text-align: -webkit-center;
 }
 
-#square{
-    display: block;
+#square {
+  display: none;
 }
 
-#circle{
-    display: none;
+#circle {
+  display: none;
 }
 
-#triangle{
-    display: none;
+#triangle {
+  display: none;
 }
 
-#figure{
-    fill:transparent;
-    stroke:red;
-    stroke-width: var(--border-thickness);
+#figure_square,
+#figure_circle,
+#figure_triangle{
+  fill: transparent;
+  stroke: red;
+  stroke-width: var(--border-thickness);
 }
