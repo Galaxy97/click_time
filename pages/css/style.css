@@ -64,7 +64,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+/* -- style of menu buttons -- */
 .menu_wrap > a{
     display: flex;
     justify-content: center;
