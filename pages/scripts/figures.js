@@ -22,19 +22,19 @@ async function start() {
   let begin = false;
   let show = false;
   let unpressOne = false;
+  let unpressTwo = true;
   const results = {};
   // console.log("клавіша K натиснута");
   window.addEventListener("keydown", function(event) {
     if (event.code == "KeyK") {
       if (!testIsRunning && !begin) {
-        setTimeout(() => {
-          testIsRunning = true;
-          begin = true;
-          results.begin = performance.now();
-        }, 0);
+        testIsRunning = true;
+        begin = true;
+        results.begin = performance.now();
       }
-      if (begin) {
+      if (begin && unpressTwo) {
         begin = false;
+        unpressOne = false;
         document.getElementById("messeage").innerText = `Фігура ${iter +
           1} з ${repeats}`;
         showFigure(figures[iter]);
@@ -58,6 +58,7 @@ async function start() {
   window.addEventListener("keydown", function(event) {
     if (event.code == "KeyJ") {
       if (unpressOne) {
+        unpressTwo = false;
         hideFigure(figures[iter]);
         show = false;
         results[iter].moving = performance.now();
@@ -67,6 +68,7 @@ async function start() {
   // console.log("клавіша J відпущена");
   window.addEventListener("keyup", function(event) {
     if (event.code == "KeyJ") {
+      unpressTwo = true;
       if (!show) {
         const pause = getRandomInt(
           data.common.pause.from,
