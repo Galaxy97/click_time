@@ -2,9 +2,38 @@
   --border-thickness: 10px;
 }
 
+/* --!!!!!-- button`s and messege`s temporary style -- */
+#messeage{
+  position: fixed;
+  left: 20px;
+  top: 20px;
+}
+
+#temporary_start{
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+/*------------------------------------------------------*/
+
+/* -- header`s style -- */
+#stop_button{
+  width: 22px;
+  height: 22px;
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  background-image: url("../../img/close.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 99;
+}
+
+/* -- content`s style -- */
 .figure_wrap {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

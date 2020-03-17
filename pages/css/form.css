@@ -8,7 +8,7 @@
     --text-color: #EEE7E7;
   }
 
-/* -- settings page header`s style -- */
+/* -- header`s style -- */
 #back_button{
     width: 44px;
     height: 44px;
@@ -22,7 +22,7 @@
     z-index: 99;
 }
 
-/* -- settings  page content`s style -- */
+/* -- content`s style -- */
 
 .main_content_wrap{
     width: 100vw;

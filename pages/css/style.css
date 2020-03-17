@@ -8,7 +8,7 @@
     src: url("../../fonts/Roboto/Roboto-Regular.ttf");
 }
 
-/* -- main page header`s style -- */
+/* -- header`s style -- */
 .settings_button{
     width: 44px;
     height: 44px;
@@ -21,7 +21,7 @@
     background-size: cover;
 }
 
-/* -- main page content`s style -- */
+/* -- content`s style -- */
 .main_content_wrap{
     width: 100vw;
     height: 100vh;
