@@ -5,13 +5,8 @@
       "for": 900
     },
     "pause": {
-<<<<<<< HEAD
       "from": 7,
       "for": 900
-=======
-      "from": 700,
-      "for": 1500
->>>>>>> test
     },
     "numbers": {
       "from": 7,
