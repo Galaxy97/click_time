@@ -56,7 +56,7 @@ async function setValues() {
         files.setData(data).catch(e => console.log(e));
       };
       //
-
+      /*-- figures -- */
       document.getElementById("thickness_from").value =
         data.figures.thickness.from;
       document.getElementById("thickness_from").onchange = () => {

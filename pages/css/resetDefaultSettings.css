@@ -20,6 +20,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+body{
+	background-color: #2B2E3B;
+}
+
 a:focus,
 button:focus,
 textarea:focus,
