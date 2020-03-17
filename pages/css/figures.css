@@ -27,7 +27,9 @@
   display: none;
 }
 
-#figure {
+#figure_square,
+#figure_circle,
+#figure_triangle{
   fill: transparent;
   stroke: red;
   stroke-width: var(--border-thickness);
