@@ -18,7 +18,7 @@ async function start() {
   document.getElementById("messeage").innerText =
     'тест почнеться, як тільки натиснете клавішу "Л"';
 
-  document.getElementById("attention-message").style.color = 'green';
+  document.getElementById("attention-message").style.color = "green";
 
   let testIsRunning = false;
   let begin = false;
@@ -27,51 +27,58 @@ async function start() {
   let unpressTwo = true;
   const results = {};
   // console.log("клавіша K натиснута");
-  window.addEventListener("keydown", function(event) {
+  document.addEventListener("keydown", onePress);
+  function onePress(event) {
     if (event.code == "KeyK") {
+      unpressOne = false;
       if (!testIsRunning && !begin) {
         testIsRunning = true;
         begin = true;
         results.begin = performance.now();
       }
-      if (begin && unpressTwo) {
+      if (begin && unpressTwo && !show) {
         begin = false;
-        unpressOne = false;
+        show = true;
         document.getElementById("messeage").innerText = `Фігура ${iter +
           1} з ${repeats}`;
-        document.getElementById("attention-message").innerText = 'Необхідно відтиснути Л клавішу';
+        document.getElementById("attention-message").innerText =
+          "Необхідно відтиснути Л клавішу";
         showFigure(figures[iter]);
-        show = true;
         results[iter] = {
           begin: performance.now()
         };
       }
     }
-  });
+  }
   // console.log("клавіша K відпущена");
-  window.addEventListener("keyup", function(event) {
+  document.addEventListener("keyup", oneUnPress);
+  function oneUnPress(event) {
+    unpressOne = true;
     if (event.code == "KeyK") {
-      if (show) {
-        unpressOne = true;
+      if (show && unpressTwo) {
         results[iter].sensor = performance.now();
-        document.getElementById("attention-message").innerText = 'Необхідно натиснути О клавішу';
+        document.getElementById("attention-message").innerText =
+          "Необхідно натиснути О клавішу";
       }
     }
-  });
+  }
   // console.log("клавіша J натиснута");
-  window.addEventListener("keydown", function(event) {
+  document.addEventListener("keydown", twoPress);
+  function twoPress(event) {
     if (event.code == "KeyJ") {
-      if (unpressOne) {
-        unpressTwo = false;
-        hideFigure(figures[iter]);
+      unpressTwo = false;
+      if (show && unpressOne) {
         show = false;
+        hideFigure(figures[iter]);
         results[iter].moving = performance.now();
-        document.getElementById("attention-message").innerText = 'Необхідно відтиснути О клавішу';
+        document.getElementById("attention-message").innerText =
+          "Необхідно відтиснути О клавішу";
       }
     }
-  });
+  }
   // console.log("клавіша J відпущена");
-  window.addEventListener("keyup", function(event) {
+  document.addEventListener("keyup", twoUnPress);
+  function twoUnPress(event) {
     if (event.code == "KeyJ") {
       unpressTwo = true;
       if (!show) {
@@ -80,20 +87,27 @@ async function start() {
           data.common.pause.for
         );
         results[iter].pause = pause;
-        document.getElementById("attention-message").innerText = 'Необхідно тримати Л клавішу';
-        setTimeout(() => {
-          if (iter + 1 != repeats) {
-            iter++;
+        if (iter + 1 == repeats) {
+          results.end = performance.now();
+          document.getElementById("attention-message").innerText =
+            "Відпустіть всі клавіші";
+          console.log(results);
+          document.getElementById("messeage").innerText = "Тест завершено";
+          document.removeEventListener("keydown", onePress);
+          document.removeEventListener("keydown", twoPress);
+          document.removeEventListener("keyup", oneUnPress);
+          document.removeEventListener("keyup", twoUnPress);
+        } else {
+          document.getElementById("attention-message").innerText =
+            "Необхідно тримати Л клавішу";
+          iter++;
+          setTimeout(() => {
             begin = true;
-          } else {
-            results.end = performance.now();
-            console.log(results);
-            document.getElementById("messeage").innerText = "Тест завершено";
-          }
-        }, pause); // pause
+          }, pause); // pause
+        }
       }
     }
-  });
+  }
 }
 
 function showFigure(type) {
