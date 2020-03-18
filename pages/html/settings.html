@@ -8,7 +8,7 @@
   <body>
     <head>
       <div class="back_button_wrap">
-        <a class="back_button" href="./index.html"></a>
+        <a id="back_button" href="./index.html"></a>
       </div>
     </head>
     <main>
@@ -106,9 +106,15 @@
             </div>
             <div class="settings_content_wrap">
               <div class="colours_menu">
-                <input id="red" type="color" name="color">
-                <input id="green" type="color" name="color">
-                <input id="blue" type="color" name="color">
+                <label>
+                  <input id="red" type="color" name="color">
+                </label>
+                <label>
+                  <input id="green" type="color" name="color">
+                </label>
+                <label>
+                  <input id="blue" type="color" name="color">
+                </label>
               </div>
             </div>
           </div>
@@ -118,5 +124,20 @@
     </main>
     
     <script src="../scripts/settings.js"></script>
+    
+    <script>
+      /* -- When the user scrolls down 50px from the top of the document, resize the back arrow -- */
+      window.onscroll = function() {resizeFunction()};
+      
+      function resizeFunction() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+          document.getElementById("back_button").style.width = "22px";
+          document.getElementById("back_button").style.height = "22px";
+        } else {
+          document.getElementById("back_button").style.width = "44px";
+          document.getElementById("back_button").style.height = "44px";
+        }
+      }
+      </script>
   </body>
 </html>

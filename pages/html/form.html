@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/resetDefaultSettings.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/form.css" />
+  </head>
+  <body>
+    <header>
+      <a id="back_button" href="./index.html"></a>
+    </header>
+    <main>
+      <div class="main_content_wrap">
+        <div class="main_content">
+          <div class="form">
+            <div class="form__group field">
+              <input
+                type="input"
+                class="form__field"
+                placeholder="Прізвище"
+                name="surname"
+                id="surname"
+                required
+              />
+              <label for="surname" class="form__label">Прізвище</label>
+            </div>
+            <div class="form__group field">
+              <input
+                type="input"
+                class="form__field"
+                placeholder="Ім'я"
+                name="name"
+                id="name"
+                required
+              />
+              <label for="name" class="form__label">Ім'я</label>
+            </div>
+            <div class="form__group field">
+              <input
+                type="input"
+                class="form__field"
+                placeholder="Побатькові"
+                name="midleName"
+                id="midleName"
+                required
+              />
+              <label for="midleName" class="form__label">Побатькові</label>
+            </div>
+            <div class="form__group field">
+              <input type="date" class="form__field" id="date" required />
+              <label for="midleName" class="form__label"></label>
+            </div>
+            <div class="start_button_wrap">
+              <div id="start_button" onclick="justDoIt()">Розпочати</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      function justDoIt() {
+        const surname = document.getElementById("surname").value;
+        const name = document.getElementById("name").value;
+        const midleName = document.getElementById("midleName").value;
+        if (!surname) {
+          new Notification("Відсутнє поле з прізвищем!!!", {
+            body: "Будь ласка заповність поле"
+          });
+          return false;
+        }
+        if (!name) {
+          new Notification("Відсутнє поле з іменем!!!", {
+            body: "Будь ласка заповність поле"
+          });
+          return false;
+        }
+        if (!midleName) {
+          new Notification("Відсутнє поле з іменем по батькові!!!", {
+            body: "Будь ласка заповність поле"
+          });
+          return false;
+        }
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ surname, name, midleName })
+        );
+        switch (localStorage.getItem("typeTest")) {
+          case "fig":
+            document.location.href = "./figures.html";
+            break;
+          case "wor":
+            document.location.href = "./words.html";
+            break;
+          case "col":
+            document.location.href = "./colours.html";
+            break;
+        }
+      }
+
+      document.getElementById("date").value = new Date()
+        .toISOString()
+        .slice(0, 10);
+    </script>
+  </body>
+</html>

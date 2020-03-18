@@ -8,30 +8,23 @@
     src: url("../../fonts/Roboto/Roboto-Regular.ttf");
 }
 
-/* -- main page header`s style -- */
-.settings_button_wrap{
-    width: 100vw;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    background-color: #2B2E3B;
-}
-
+/* -- header`s style -- */
 .settings_button{
     width: 44px;
     height: 44px;
-    margin-right: 8px;
+    position: fixed;
+    top: 8px;
+    right: 8px;
     background-image: url("../../img/settings.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-/* -- main page content`s style -- */
+/* -- content`s style -- */
 .main_content_wrap{
     width: 100vw;
-    height: calc(100vh - 60px);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +64,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+/* -- style of menu buttons -- */
 .menu_wrap > a{
     display: flex;
     justify-content: center;

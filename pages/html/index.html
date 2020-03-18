@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/resetDefaultSettings.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/resetDefaultSettings.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body>
     <header>
-        <div class="settings_button_wrap">
-            <a class="settings_button" href="./settings.html"></a>
-        </div>
+      <a class="settings_button" href="./settings.html"></a>
     </header>
     <main>
-        <div class="main_content_wrap">
-            <div class="main_content">
-                <div class="logo_wrap">
-                    <p>Click</p>
-                    <div class="click_time_icon"></div>
-                    <p>time</p>
-                </div>
-                <div class="menu_wrap">
-                    <a href="./figures.html">Фігури</a>
-                    <a href="./words.html">Слова</a>
-                    <a href="./colours.html">Кольори</a>
-                </div>
-            </div>
+      <div class="main_content_wrap">
+        <div class="main_content">
+          <div class="logo_wrap">
+            <p>Click</p>
+            <div class="click_time_icon"></div>
+            <p>time</p>
+          </div>
+          <div class="menu_wrap">
+            <a href="./form.html" onclick="saveTypeTest('fig')">Фігури</a>
+            <a href="./form.html" onclick="saveTypeTest('wor')">Слова</a>
+            <a href="./form.html" onclick="saveTypeTest('col')">Кольори</a>
+          </div>
         </div>
+      </div>
     </main>
-</body>
+    <script>
+      function saveTypeTest(type) {
+        localStorage.setItem("typeTest", type);
+      }
+    </script>
+  </body>
 </html>
