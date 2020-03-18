@@ -42,7 +42,7 @@ async function setValues() {
       //
       document.getElementById("numbers_from").value = data.common.numbers.from;
       document.getElementById("numbers_from").onchange = () => {
-        data.common.pause.from = Number(
+        data.common.numbers.from = Number(
           document.getElementById("numbers_from").value
         );
         files.setData(data).catch(e => console.log(e));
@@ -50,7 +50,7 @@ async function setValues() {
       //
       document.getElementById("numbers_for").value = data.common.numbers.for;
       document.getElementById("numbers_for").onchange = () => {
-        data.common.pause.for = Number(
+        data.common.numbers.for = Number(
           document.getElementById("numbers_for").value
         );
         files.setData(data).catch(e => console.log(e));

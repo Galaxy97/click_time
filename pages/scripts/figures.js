@@ -1,4 +1,5 @@
 const files = require("modules/../../pages/scripts/files.js");
+const showResults = require('modules/../../pages/scripts/showRes');
 
 async function start() {
   const data = await files.getData();
@@ -25,7 +26,7 @@ async function start() {
   let show = false;
   let unpressOne = false;
   let unpressTwo = true;
-  const results = {};
+  const results = { times: {} };
   // console.log("клавіша K натиснута");
   document.addEventListener("keydown", onePress);
   function onePress(event) {
@@ -44,7 +45,7 @@ async function start() {
         document.getElementById("attention-message").innerText =
           "Необхідно відтиснути Л клавішу";
         showFigure(figures[iter]);
-        results[iter] = {
+        results.times[iter] = {
           begin: performance.now()
         };
       }
@@ -56,7 +57,7 @@ async function start() {
     unpressOne = true;
     if (event.code == "KeyK") {
       if (show && unpressTwo) {
-        results[iter].sensor = performance.now();
+        results.times[iter].sensor = performance.now();
         document.getElementById("attention-message").innerText =
           "Необхідно натиснути О клавішу";
       }
@@ -70,7 +71,7 @@ async function start() {
       if (show && unpressOne) {
         show = false;
         hideFigure(figures[iter]);
-        results[iter].moving = performance.now();
+        results.times[iter].moving = performance.now();
         document.getElementById("attention-message").innerText =
           "Необхідно відтиснути О клавішу";
       }
@@ -86,17 +87,19 @@ async function start() {
           data.common.pause.from,
           data.common.pause.for
         );
-        results[iter].pause = pause;
         if (iter + 1 == repeats) {
           results.end = performance.now();
+          results.repeats = repeats;
           document.getElementById("attention-message").innerText =
             "Відпустіть всі клавіші";
-          console.log(results);
           document.getElementById("messeage").innerText = "Тест завершено";
           document.removeEventListener("keydown", onePress);
           document.removeEventListener("keydown", twoPress);
           document.removeEventListener("keyup", oneUnPress);
           document.removeEventListener("keyup", twoUnPress);
+          calculateResult(results); // calculate
+          console.log(results);
+          showResults('div-results',results);
         } else {
           document.getElementById("attention-message").innerText =
             "Необхідно тримати Л клавішу";
@@ -142,4 +145,26 @@ function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min; //Включаючи мінімум та максимум
+}
+
+function calculateResult(results) {
+  let CK = 0;
+  let DP = 0;
+  let MK = 0;
+  Object.keys(results.times).forEach(key => {
+    const ck = results.times[key].sensor - results.times[key].begin;
+    const dp = results.times[key].moving - results.times[key].begin;
+    const mk = dp - ck;
+    results.times[key].ck = ck;
+    results.times[key].dp = dp;
+    results.times[key].mk = mk;
+    CK += ck;
+    DP += dp;
+    MK += mk;
+  });
+  results.average = {
+    CK: CK / results.repeats,
+    DP: DP / results.repeats,
+    MK: MK / results.repeats
+  };
 }

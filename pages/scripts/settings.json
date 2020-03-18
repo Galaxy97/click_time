@@ -1,16 +1,16 @@
 {
   "common": {
     "show_time": {
-      "from": 690,
+      "from": 700,
       "for": 900
     },
     "pause": {
-      "from": 7,
-      "for": 900
+      "from": 8,
+      "for": 520
     },
     "numbers": {
-      "from": 7,
-      "for": 15
+      "from": 5,
+      "for": 6
     }
   },
   "figures": {

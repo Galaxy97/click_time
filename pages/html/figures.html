@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>figures</title>
-    <link rel="stylesheet" type="text/css" href="../css/resetDefaultSettings.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/figures.css"/>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/resetDefaultSettings.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/figures.css" />
+  </head>
+  <body onload="start()">
     <div id="messeage"></div>
     <div id="attention-message"></div>
     <head>
@@ -20,7 +24,10 @@
         <div class="figures">
           <div id="square">
             <svg height="200" width="200">
-              <polygon points="50,50 50,150 150,150 150,50" id="figure_square" />
+              <polygon
+                points="50,50 50,150 150,150 150,50"
+                id="figure_square"
+              />
             </svg>
           </div>
           <div id="circle">
@@ -37,7 +44,8 @@
       </div>
     </main>
 
-    <button id="temporary_start" onclick="start()">Start</button>
+    <div id="div-results"></div>
+
     <script src="../scripts/figures.js"></script>
   </body>
 </html>

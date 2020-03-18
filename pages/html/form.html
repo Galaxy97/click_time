@@ -102,7 +102,13 @@
             break;
         }
       }
-
+      // set values if exsists
+      const data = JSON.parse(localStorage.getItem("user"));
+      console.log(data);
+      if (data.surname) document.getElementById("surname").value = data.surname;
+      if (data.name) document.getElementById("name").value = data.name;
+      if (data.midleName)
+        document.getElementById("midleName").value = data.midleName;
       document.getElementById("date").value = new Date()
         .toISOString()
         .slice(0, 10);
