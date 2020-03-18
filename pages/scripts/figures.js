@@ -18,6 +18,8 @@ async function start() {
   document.getElementById("messeage").innerText =
     'тест почнеться, як тільки натиснете клавішу "Л"';
 
+  document.getElementById("attention-message").style.color = 'green';
+
   let testIsRunning = false;
   let begin = false;
   let show = false;
@@ -37,6 +39,7 @@ async function start() {
         unpressOne = false;
         document.getElementById("messeage").innerText = `Фігура ${iter +
           1} з ${repeats}`;
+        document.getElementById("attention-message").innerText = 'Необхідно відтиснути Л клавішу';
         showFigure(figures[iter]);
         show = true;
         results[iter] = {
@@ -51,6 +54,7 @@ async function start() {
       if (show) {
         unpressOne = true;
         results[iter].sensor = performance.now();
+        document.getElementById("attention-message").innerText = 'Необхідно натиснути О клавішу';
       }
     }
   });
@@ -62,6 +66,7 @@ async function start() {
         hideFigure(figures[iter]);
         show = false;
         results[iter].moving = performance.now();
+        document.getElementById("attention-message").innerText = 'Необхідно відтиснути О клавішу';
       }
     }
   });
@@ -75,6 +80,7 @@ async function start() {
           data.common.pause.for
         );
         results[iter].pause = pause;
+        document.getElementById("attention-message").innerText = 'Необхідно тримати Л клавішу';
         setTimeout(() => {
           if (iter + 1 != repeats) {
             iter++;
