@@ -9,13 +9,13 @@
       "for": 2000
     },
     "numbers": {
-      "from": 5,
-      "for": 7
+      "from": 30,
+      "for": 31
     }
   },
   "figures": {
     "thickness": {
-      "from": 7,
+      "from": 20,
       "for": 90
     }
   },
@@ -27,7 +27,7 @@
     "інженер"
   ],
   "colours": {
-    "red": "#eeee1a",
+    "red": "#fa0e9b",
     "green": "#219653",
     "blue": "#4343eb"
   }

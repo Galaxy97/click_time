@@ -11,3 +11,16 @@
     background-size: cover;
     z-index: 99;
 }
+
+#results{
+    margin: 50px;
+}
+
+tr th, tr td{
+    border: 1px solid #fff;
+    padding: 5px;
+}
+
+h3{
+    margin-top: 10px;
+}
