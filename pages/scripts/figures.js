@@ -43,7 +43,7 @@ async function start() {
         document.getElementById("attention-message").style.opacity = "1";
         document.getElementById("attention-message").innerText =
           "Необхідно відтиснути Л клавішу";
-        showFigure(figures[iter]);
+        showFigure(figures[iter], data.figures);
         results.times[iter] = {
           begin: performance.now()
         };
@@ -98,7 +98,7 @@ async function start() {
           document.removeEventListener("keyup", twoUnPress);
           calculateResult(results); // calculate
           console.log(results);
-          localStorage.setItem('results', JSON.stringify(results));
+          localStorage.setItem("results", JSON.stringify(results));
           document.location.href = "./showRes.html";
         } else {
           document.getElementById("attention-message").innerText =
@@ -113,16 +113,34 @@ async function start() {
   }
 }
 
-function showFigure(type) {
+function showFigure(type, thickness) {
   switch (type) {
     case 0:
       document.getElementById("square").style.display = "block";
+      document
+        .getElementById("square")
+        .style.setProperty(
+          "--border-thickness",
+          getRandomInt(thickness.from, thickness.for) + "px"
+        );
       break;
     case 1:
       document.getElementById("circle").style.display = "block";
+      document
+        .getElementById("circle")
+        .style.setProperty(
+          "--border-thickness",
+          getRandomInt(thickness.from, thickness.for) + "px"
+        );
       break;
     case 2:
       document.getElementById("triangle").style.display = "block";
+      document
+        .getElementById("triangle")
+        .style.setProperty(
+          "--border-thickness",
+          getRandomInt(thickness.from, thickness.for) + "px"
+        );
       break;
   }
 }
