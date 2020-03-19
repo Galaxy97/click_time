@@ -5,12 +5,12 @@
       "for": 900
     },
     "pause": {
-      "from": 8,
-      "for": 520
+      "from": 500,
+      "for": 2000
     },
     "numbers": {
       "from": 5,
-      "for": 6
+      "for": 12
     }
   },
   "figures": {

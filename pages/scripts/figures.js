@@ -15,11 +15,10 @@ async function start() {
   }
   console.log(figures);
   // ------------------------------------
-  document.getElementById("messeage").style.color = "red";
+  document.getElementById("messeage").style.opacity = "1";
   document.getElementById("messeage").innerText =
     'тест почнеться, як тільки натиснете клавішу "Л"';
 
-  document.getElementById("attention-message").style.color = "green";
 
   let testIsRunning = false;
   let begin = false;
@@ -42,6 +41,7 @@ async function start() {
         show = true;
         document.getElementById("messeage").innerText = `Фігура ${iter +
           1} з ${repeats}`;
+        document.getElementById("attention-message").style.opacity = "1";
         document.getElementById("attention-message").innerText =
           "Необхідно відтиснути Л клавішу";
         showFigure(figures[iter]);

@@ -2,20 +2,6 @@
   --border-thickness: 10px;
 }
 
-/* --!!!!!-- button`s and messege`s temporary style -- */
-#messeage{
-  position: fixed;
-  left: 20px;
-  top: 20px;
-}
-
-#temporary_start{
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-}
-/*------------------------------------------------------*/
-
 /* -- header`s style -- */
 #stop_button{
   width: 22px;
@@ -62,4 +48,46 @@
   fill: transparent;
   stroke: red;
   stroke-width: var(--border-thickness);
+}
+
+/* -- style appearing message -- */
+.message_box{
+  position: fixed;
+  left: 20px;
+  top: 20px;
+}
+
+#messeage,#attention-message{
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 44px;
+  background: #05F2AE;
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+#attention-message{
+  margin-top: 25px;
+}
+
+#messeage::before,
+#attention-message:before{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0px;
+  border-left: 10px solid #05F2AE;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
 }

@@ -11,10 +11,10 @@ module.exports = (documentId, results) => {
   averageCK.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.CK.toFixed(3)} (мс)`;
   div.append(averageCK);
   const averageDP = document.createElement("div");
-  averageDP.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.DP.toFixed(3)} (мс)`;
+  averageDP.innerHTML = `<h3>Cереднє значення рухомої реакції</h3> ${results.average.DP.toFixed(3)} (мс)`;
   div.append(averageDP);
   const averageMK = document.createElement("div");
-  averageMK.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.MK.toFixed(3)} (мс)`;
+  averageMK.innerHTML = `<h3>Cереднє значення моторного компоненту</h3> ${results.average.MK.toFixed(3)} (мс)`;
   div.append(averageMK);
 };
 
