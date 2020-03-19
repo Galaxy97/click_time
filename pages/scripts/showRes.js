@@ -1,4 +1,6 @@
-module.exports = (documentId, results) => {
+const results = JSON.parse(localStorage.getItem("results"));
+calc("results", results);
+function calc(documentId, results) {
   const table = document.createElement("table");
   table.style.color = "white";
   table.append(createHeaders());
@@ -8,15 +10,30 @@ module.exports = (documentId, results) => {
   div.style.color = "white";
   document.getElementById(documentId).append(div);
   const averageCK = document.createElement("div");
-  averageCK.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.CK.toFixed(3)} (мс)`;	  averageCK.innerHTML = `<h3>Cереднє значення сенсорного компоненту ${results.average.CK.toFixed(3)} (мс)</h3>`;
+  averageCK.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.CK.toFixed(
+    3
+  )} (мс)`;
+  averageCK.innerHTML = `<h3>Cереднє значення сенсорного компоненту ${results.average.CK.toFixed(
+    3
+  )} (мс)</h3>`;
   div.append(averageCK);
   const averageDP = document.createElement("div");
-  averageDP.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.DP.toFixed(3)} (мс)`;	  averageDP.innerHTML = `<h3>Cереднє значення часу рухомої реакції ${results.average.DP.toFixed(3)} (мс)</h3>`;
+  averageDP.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.DP.toFixed(
+    3
+  )} (мс)`;
+  averageDP.innerHTML = `<h3>Cереднє значення часу рухомої реакції ${results.average.DP.toFixed(
+    3
+  )} (мс)</h3>`;
   div.append(averageDP);
   const averageMK = document.createElement("div");
-  averageMK.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.MK.toFixed(3)} (мс)`;	  averageMK.innerHTML = `<h3>Cереднє значення моторного компоненту ${results.average.MK.toFixed(3)} (мс)</h3>`;
+  averageMK.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.MK.toFixed(
+    3
+  )} (мс)`;
+  averageMK.innerHTML = `<h3>Cереднє значення моторного компоненту ${results.average.MK.toFixed(
+    3
+  )} (мс)</h3>`;
   div.append(averageMK);
-};
+}
 
 function createHeaders() {
   const tr = document.createElement("tr");
