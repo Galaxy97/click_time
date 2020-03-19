@@ -9,19 +9,14 @@
       "for": 2000
     },
     "numbers": {
-      "from": 30,
-      "for": 31
+      "from": 5,
+      "for": 7
     }
   },
   "figures": {
     "thickness": {
-<<<<<<< HEAD
       "from": 20,
-      "for": 90
-=======
-      "from": 40,
       "for": 50
->>>>>>> 222bd318182e8fd4b5efd36cc4d802d84e57130b
     }
   },
   "words": [
