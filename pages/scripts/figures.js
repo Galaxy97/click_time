@@ -17,7 +17,7 @@ async function start() {
   // ------------------------------------
   document.getElementById("messeage").style.opacity = "1";
   document.getElementById("messeage").innerText =
-    'тест почнеться, як тільки натиснете клавішу "Л"';
+    'Тест почнеться, як тільки натиснете клавішу "Л"';
 
 
   let testIsRunning = false;
