@@ -20,8 +20,7 @@
         <div class="main_content">
           <div class="form">
             <div class="form__group field">
-              <input
-                type="input"
+              <input type="input"
                 class="form__field"
                 placeholder="Прізвище"
                 name="surname"
@@ -29,6 +28,7 @@
                 required
               />
               <label for="surname" class="form__label">Прізвище</label>
+              <div id="surname_errors_message">Обов'язкове поле!!!</div>
             </div>
             <div class="form__group field">
               <input
@@ -40,6 +40,7 @@
                 required
               />
               <label for="name" class="form__label">Ім'я</label>
+              <div id="name_errors_message">Обов'язкове поле!!!</div>
             </div>
             <div class="form__group field">
               <input
@@ -51,6 +52,7 @@
                 required
               />
               <label for="midleName" class="form__label">Побатькові</label>
+              <div id="midleName_errors_message">Обов'язкове поле!!!</div>
             </div>
             <div class="form__group field">
               <input type="date" class="form__field" id="date" required />
@@ -68,22 +70,26 @@
         const surname = document.getElementById("surname").value;
         const name = document.getElementById("name").value;
         const midleName = document.getElementById("midleName").value;
+
+        const surname_error = document.getElementById("surname_errors_message");
+        const name_errors = document.getElementById("name_errors_message");
+        const midleName_errors = document.getElementById("midleName_errors_message");
         if (!surname) {
-          new Notification("Відсутнє поле з прізвищем!!!", {
-            body: "Будь ласка заповність поле"
-          });
+          surname_error.style.opacity = 1;
+          name_errors.style.opacity = 0;
+          midleName_errors.style.opacity = 0;
           return false;
         }
         if (!name) {
-          new Notification("Відсутнє поле з іменем!!!", {
-            body: "Будь ласка заповність поле"
-          });
+          surname_error.style.opacity = 0;
+          name_errors.style.opacity = 1;
+          midleName_errors.style.opacity = 0;
           return false;
         }
         if (!midleName) {
-          new Notification("Відсутнє поле з іменем по батькові!!!", {
-            body: "Будь ласка заповність поле"
-          });
+          surname_error.style.opacity = 0;
+          name_errors.style.opacity = 0;
+          midleName_errors.style.opacity = 1;
           return false;
         }
         localStorage.setItem(

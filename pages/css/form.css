@@ -112,6 +112,42 @@
 .form__field:required{ box-shadow:none; }
 .form__field:invalid { box-shadow:none; }
 
+/* -- style for errors message -- */
+#midleName_errors_message,
+#name_errors_message,
+#surname_errors_message{
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  top: 25%;
+  left: 105%;
+
+  display: flex;
+  align-items: center;
+  height: 44px;
+  background: #F2C94C;
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+#midleName_errors_message::before,
+#name_errors_message::before,
+#surname_errors_message::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #F2C94C;
+    border-bottom: 10px solid transparent;
+  }
+
 /* -- input type date custom style -- */
 input[type="date"] {
     color: var(--text-color);
