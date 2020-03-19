@@ -1,5 +1,4 @@
 const files = require("modules/../../pages/scripts/files.js");
-const showResults = require("modules/../../pages/scripts/showRes");
 
 async function start() {
   const data = await files.getData();
@@ -43,7 +42,7 @@ async function start() {
         document.getElementById("attention-message").style.opacity = "1";
         document.getElementById("attention-message").innerText =
           "Необхідно відтиснути Л клавішу";
-        showFigure(figures[iter], data.figures);
+        showFigure(figures[iter], data.figures.thickness);
         results.times[iter] = {
           begin: performance.now()
         };
@@ -114,6 +113,7 @@ async function start() {
 }
 
 function showFigure(type, thickness) {
+  console.log(thickness);
   switch (type) {
     case 0:
       document.getElementById("square").style.display = "block";
