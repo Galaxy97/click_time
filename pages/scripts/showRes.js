@@ -8,13 +8,13 @@ module.exports = (documentId, results) => {
   div.style.color = "white";
   document.getElementById(documentId).append(div);
   const averageCK = document.createElement("div");
-  averageCK.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.CK.toFixed(3)} (мс)`;
+  averageCK.innerHTML = `<h3>Cереднє значення сенсорного компоненту ${results.average.CK.toFixed(3)} (мс)</h3>`;
   div.append(averageCK);
   const averageDP = document.createElement("div");
-  averageDP.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.DP.toFixed(3)} (мс)`;
+  averageDP.innerHTML = `<h3>Cереднє значення часу рухомої реакції ${results.average.DP.toFixed(3)} (мс)</h3>`;
   div.append(averageDP);
   const averageMK = document.createElement("div");
-  averageMK.innerHTML = `<h3>Cереднє значення сенсорного компоненту</h3> ${results.average.MK.toFixed(3)} (мс)`;
+  averageMK.innerHTML = `<h3>Cереднє значення моторного компоненту ${results.average.MK.toFixed(3)} (мс)</h3>`;
   div.append(averageMK);
 };
 
@@ -31,6 +31,10 @@ function createHeaders() {
   const moving = document.createElement("th");
   moving.innerText = "час рухомої реакції";
   tr.append(moving);
+
+  const engine = document.createElement("th");
+  engine.innerText = "час моторного компоненту";
+  tr.append(engine);
 
   return tr;
 }
