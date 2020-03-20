@@ -34,7 +34,7 @@ async function start() {
             1} з ${repeats}`;
           showFigure(figures[iter], data.figures.thickness);
           results.times[iter] = { show: performance.now() };
-        }, 500);
+        }, 1000);
       }
       if (show) {
         results.times[iter].hide = performance.now();
@@ -45,12 +45,11 @@ async function start() {
           data.common.pause.for
         );
         if (iter + 1 >= repeats) {
-          document.getElementById("messeage").innerText = "Тест завершено";
           document.removeEventListener("keydown", onePress);
           calculateResult(results); // calculate
           console.log(results);
-          // localStorage.setItem("results", JSON.stringify(results));
-          // document.location.href = "./showRes.html";
+          document.getElementById("messeage").innerText =
+            "Середній час реакції " + results.average.AT;
         } else {
           setTimeout(() => {
             iter++;
