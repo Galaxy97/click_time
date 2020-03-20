@@ -45,12 +45,11 @@ async function start() {
           data.common.pause.for
         );
         if (iter + 1 >= repeats) {
-          document.getElementById("messeage").innerText = "Тест завершено";
           document.removeEventListener("keydown", onePress);
           calculateResult(results); // calculate
           console.log(results);
-          // localStorage.setItem("results", JSON.stringify(results));
-          // document.location.href = "./showRes.html";
+          document.getElementById("messeage").innerText =
+            "Середній час реакції " + results.average.AT;
         } else {
           setTimeout(() => {
             iter++;

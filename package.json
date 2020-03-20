@@ -12,6 +12,8 @@
     "electron": "^8.1.0"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-winstaller": "^4.0.0",
     "xlsx": "^0.15.6"
   }
 }
