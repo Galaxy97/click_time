@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test for test</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/resetDefaultSettings.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/figures.css" />
+  </head>
+  <body onload="start()">
+    <head>
+      <div class="message_box">
+        <div id="messeage"></div>
+        <div id="attention-message"></div>
+      </div>
+      <div class="stop_bytton_wrap">
+        <a id="stop_button" href="./form.html"></a>
+      </div>
+    </head>
+    <main>
+      <div class="figure_wrap">
+        <div class="figures">
+          <div id="square">
+            <svg height="200" width="200">
+              <polygon
+                points="50,50 50,150 150,150 150,50"
+                id="figure_square"
+              />
+            </svg>
+          </div>
+          <div id="circle">
+            <svg width="200" height="200">
+              <circle cx="100" cy="100" r="50" id="figure_circle" />
+            </svg>
+          </div>
+          <div id="triangle">
+            <svg height="200" width="200">
+              <polygon points="100,50 50,150 150,150" id="figure_triangle" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="div-results"></div>
+
+    <script src="../scripts/testForTest.js"></script>
+  </body>
+</html>
