@@ -44,7 +44,7 @@ async function start() {
           data.common.pause.from,
           data.common.pause.for
         );
-        if (iter + 1 <= repeats) {
+        if (iter + 1 >= repeats) {
           document.getElementById("messeage").innerText = "Тест завершено";
           document.removeEventListener("keydown", onePress);
           calculateResult(results); // calculate
@@ -57,6 +57,7 @@ async function start() {
             show = true;
             document.getElementById("messeage").innerText = `Фігура ${iter +
               1} з ${repeats}`;
+            document.addEventListener("keydown", onePress);
             showFigure(figures[iter], data.figures.thickness);
             results.times[iter] = { show: performance.now() };
           }, pause);
