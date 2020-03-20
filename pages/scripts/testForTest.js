@@ -34,7 +34,7 @@ async function start() {
             1} з ${repeats}`;
           showFigure(figures[iter], data.figures.thickness);
           results.times[iter] = { show: performance.now() };
-        }, 500);
+        }, 1200);
       }
       if (show) {
         results.times[iter].hide = performance.now();
