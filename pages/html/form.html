@@ -43,20 +43,21 @@
               <div id="name_errors_message">Обов'язкове поле!!!</div>
             </div>
             <div class="form__group field">
-              <input
-                type="input"
-                class="form__field"
-                placeholder="Побатькові"
-                name="midleName"
-                id="midleName"
-                required
-              />
-              <label for="midleName" class="form__label">Побатькові</label>
-              <div id="midleName_errors_message">Обов'язкове поле!!!</div>
-            </div>
-            <div class="form__group field">
               <input type="date" class="form__field" id="date" required />
-              <label for="midleName" class="form__label"></label>
+              <div id="data_errors_message">Обов'язкове поле!!!</div>
+            </div>
+            <div class="form__group gender">
+              <label>Стать</label>
+              <div class="gender_selector">
+                <div class="gender_wrap">
+                  <input type='radio' value='man' id='man' checked='checked' name='gender'>
+                  <span class="man"></span>
+                </div>
+                <div class="gender_wrap">
+                  <input type='radio' value='woman' id='woman' name='gender'>
+                  <span class="woman"></span>
+                </div>               
+              </div>
             </div>
             <div class="start_button_wrap">
               <div id="start_button" onclick="justDoIt()">Розпочати</div>
@@ -69,32 +70,39 @@
       function justDoIt() {
         const surname = document.getElementById("surname").value;
         const name = document.getElementById("name").value;
-        const midleName = document.getElementById("midleName").value;
-
+        const date = document.getElementById("date").value
+        const radios = document.getElementsByName('gender');
+        let gender = 0;
+        for (let i = 0; i < radios.length; i++) {
+          if (radios[i].checked) {
+            gender = radios[i].value;
+            break;
+          }
+        }
         const surname_error = document.getElementById("surname_errors_message");
         const name_errors = document.getElementById("name_errors_message");
-        const midleName_errors = document.getElementById("midleName_errors_message");
+        const date_errors = document.getElementById("data_errors_message");
         if (!surname) {
           surname_error.style.opacity = 1;
           name_errors.style.opacity = 0;
-          midleName_errors.style.opacity = 0;
+          date_errors.style.opacity = 0;
           return false;
         }
         if (!name) {
           surname_error.style.opacity = 0;
           name_errors.style.opacity = 1;
-          midleName_errors.style.opacity = 0;
+          date_errors.style.opacity = 0;
           return false;
         }
-        if (!midleName) {
+        if (!date) {
           surname_error.style.opacity = 0;
           name_errors.style.opacity = 0;
-          midleName_errors.style.opacity = 1;
+          date_errors.style.opacity = 1;
           return false;
         }
         localStorage.setItem(
           "user",
-          JSON.stringify({ surname, name, midleName })
+          JSON.stringify({ surname, name, date, gender})
         );
         switch (localStorage.getItem("typeTest")) {
           case "fig":
@@ -110,14 +118,19 @@
       }
       // set values if exsists
       const data = JSON.parse(localStorage.getItem("user"));
-      console.log(data);
       if (data.surname) document.getElementById("surname").value = data.surname;
       if (data.name) document.getElementById("name").value = data.name;
-      if (data.midleName)
-        document.getElementById("midleName").value = data.midleName;
-      document.getElementById("date").value = new Date()
-        .toISOString()
-        .slice(0, 10);
+      if (data.date) document.getElementById("date").value = data.date;
+      if (data.gender) {
+        const radios = document.getElementsByName('gender');
+        for (let i = 0; i < radios.length; i++) {
+          if (radios[i].value == data.gender) {
+
+            radios[i].checked = true;
+            break;
+          }
+        }
+      }
     </script>
   </body>
 </html>
