@@ -30,6 +30,3 @@ app.on("activate", () => {
     createWindow();
   }
 });
-
-
-// --------------------
