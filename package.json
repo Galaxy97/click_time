@@ -1,7 +1,7 @@
 {
   "name": "time_click",
   "version": "1.0.0",
-  "description": "",
+  "description": "jhjhg",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
@@ -12,6 +12,7 @@
     "electron": "^8.1.0"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "xlsx": "^0.15.6"
   }
 }

@@ -32,7 +32,9 @@ async function start() {
           show = true;
           document.getElementById("messeage").innerText = `Фігура ${iter +
             1} з ${repeats}`;
+          const sh = performance.now();
           showFigure(figures[iter], data.figures.thickness);
+          console.log(performance.now() - sh);
           results.times[iter] = { show: performance.now() };
         }, 1000);
       }
