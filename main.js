@@ -9,6 +9,7 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1040,
     height: 800,
+    icon: "./img/logo5.ico",
     webPreferences: {
       nodeIntegration: true
     }
