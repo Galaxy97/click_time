@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("../../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+/* -- header`s style -- */
+#back_button{
+    width: 44px;
+    height: 44px;
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    background-image: url("../../img/back.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 99;
+}
+
+/* -- content`s style -- */
+
+.sorry_wrap{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B2E3B;
+}
+
+.sorry_message{
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    display: flex;
+    align-items: center;
+    height: 44px;
+    background: #F2C94C;
+    color: #000;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 10px;
+    opacity: 1  ;
+    transition: all 0.5s ease;
+}

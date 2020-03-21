@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form</title>
+    <title>Click time</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -50,7 +50,7 @@
               <label>Стать</label>
               <div class="gender_selector">
                 <div class="gender_wrap">
-                  <input type='radio' value='man' id='man' checked='checked' name='gender'>
+                  <input type='radio' value='man' id='man' name='gender'>
                   <span class="man"></span>
                 </div>
                 <div class="gender_wrap">
@@ -58,6 +58,7 @@
                   <span class="woman"></span>
                 </div>               
               </div>
+              <div id="gender_errors_message">Виберіть стать!!!</div>
             </div>
             <div class="start_button_wrap">
               <div id="start_button" onclick="justDoIt()">Розпочати</div>
@@ -82,22 +83,34 @@
         const surname_error = document.getElementById("surname_errors_message");
         const name_errors = document.getElementById("name_errors_message");
         const date_errors = document.getElementById("data_errors_message");
+        const gender_errors = document.getElementById("gender_errors_message");
+
         if (!surname) {
           surname_error.style.opacity = 1;
           name_errors.style.opacity = 0;
           date_errors.style.opacity = 0;
+          gender_errors.style.opacity = 0;
           return false;
         }
         if (!name) {
           surname_error.style.opacity = 0;
           name_errors.style.opacity = 1;
           date_errors.style.opacity = 0;
+          gender_errors.style.opacity = 0;
           return false;
         }
         if (!date) {
           surname_error.style.opacity = 0;
           name_errors.style.opacity = 0;
           date_errors.style.opacity = 1;
+          gender_errors.style.opacity = 0;
+          return false;
+        }
+        if (!gender) {
+          surname_error.style.opacity = 0;
+          name_errors.style.opacity = 0;
+          date_errors.style.opacity = 0;
+          gender_errors.style.opacity = 1;
           return false;
         }
         localStorage.setItem(

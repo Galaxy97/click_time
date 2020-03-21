@@ -12,6 +12,7 @@
     "electron": "^8.1.0"
   },
   "dependencies": {
+    "electron-packager": "^14.2.1",
     "xlsx": "^0.15.6"
   }
 }

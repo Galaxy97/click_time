@@ -1,4 +1,4 @@
-const files = require("modules/../../pages/scripts/files.js");
+const files = require(require("path").join(__dirname, "../scripts","files.js").replace(/\\/g, '/'));
 
 document.addEventListener("DOMContentLoaded", setValues);
 

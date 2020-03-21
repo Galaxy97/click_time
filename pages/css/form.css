@@ -113,6 +113,7 @@
 .form__field:invalid { box-shadow:none; }
 
 /* -- style for errors message -- */
+#gender_errors_message,
 #data_errors_message,
 #name_errors_message,
 #surname_errors_message{
@@ -135,6 +136,7 @@
   transition: all 0.5s ease;
 }
 
+#gender_errors_message::before,
 #data_errors_message::before,
 #name_errors_message::before,
 #surname_errors_message::before{

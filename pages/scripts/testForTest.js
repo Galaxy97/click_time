@@ -1,5 +1,4 @@
-const files = require("modules/../../pages/scripts/files.js");
-
+const files = require(require("path").join(__dirname, "../scripts","files.js").replace(/\\/g, '/'));
 async function start() {
   const data = await files.getData();
   const repeats = getRandomInt(
@@ -16,7 +15,7 @@ async function start() {
   // ------------------------------------
   document.getElementById("messeage").style.opacity = "1";
   document.getElementById("messeage").innerText =
-    'Тест почнеться, як тільки натиснете клавішу "Пробіл"';
+    'Тест почнеться, як тільки натиснете клавішу "Стрілка донизу"';
 
   let testIsRunning = false;
   let show = false;
@@ -25,7 +24,7 @@ async function start() {
   // console.log("клавіша K натиснута");
   document.addEventListener("keydown", onePress);
   function onePress(event) {
-    if (event.code == "Space") {
+    if (event.code == "ArrowDown") {
       if (show) {
         const time = performance.now();
         results.times[iter].hide = time; 
