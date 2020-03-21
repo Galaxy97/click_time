@@ -36,7 +36,7 @@ async function start() {
           showFigure(figures[iter], data.figures.thickness);
           console.log(performance.now() - sh);
           results.times[iter] = { show: performance.now() };
-        }, 1000);
+        }, 1200);
       }
       if (show) {
         results.times[iter].hide = performance.now();

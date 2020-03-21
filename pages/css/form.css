@@ -35,7 +35,7 @@
 
 .main_content{
     width: 384px;
-    height: 400px;
+    height: 440px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,7 +113,7 @@
 .form__field:invalid { box-shadow:none; }
 
 /* -- style for errors message -- */
-#midleName_errors_message,
+#data_errors_message,
 #name_errors_message,
 #surname_errors_message{
   width: fit-content;
@@ -135,7 +135,7 @@
   transition: all 0.5s ease;
 }
 
-#midleName_errors_message::before,
+#data_errors_message::before,
 #name_errors_message::before,
 #surname_errors_message::before{
     content: "";
@@ -150,8 +150,9 @@
 
 /* -- input type date custom style -- */
 input[type="date"] {
-    color: var(--text-color);
-    background:url(../../img/calendar.svg) 97% 50% no-repeat;
+  height: 25px;
+  color: var(--text-color);
+  background:url(../../img/calendar.svg) 97% 50% no-repeat;
   }
 
 input[type="date"]::-webkit-inner-spin-button {
@@ -161,6 +162,81 @@ input[type="date"]::-webkit-inner-spin-button {
 input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
   }
+
+/* -- input gender selector radio style -- */
+.gender{
+  height: 39px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--text-color);
+}
+
+.gender > label{
+  font-family: Roboto-Regular;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  padding: 7px 0;
+}
+
+.gender_selector{
+  display: flex;
+  height: 40px;
+  width: 80px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 7px 7px 0px;
+  background: #2B2C35;
+  border-radius: 1000px;
+}
+
+.gender_wrap{
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+.gender_wrap > span{
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #2B2C35;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.2;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.gender_selector .man{
+  background-image: url("../../img/man.svg");
+}
+
+.gender_selector .woman{
+  background-image: url("../../img/woman.svg");
+}
+
+.gender_wrap > input[type="radio"]{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  z-index: 99;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked ~ span{
+  opacity: 1;
+  border: 1px solid var(--text-color);
+}
 
 /* -- start button style -- */
 .start_button_wrap{
