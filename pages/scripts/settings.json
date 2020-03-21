@@ -6,11 +6,11 @@
     },
     "pause": {
       "from": 500,
-      "for": 2000
+      "for": 1530
     },
     "numbers": {
-      "from": 12,
-      "for": 20
+      "from": 5,
+      "for": 6
     }
   },
   "figures": {
