@@ -26,18 +26,6 @@ async function start() {
   document.addEventListener("keydown", onePress);
   function onePress(event) {
     if (event.code == "Space") {
-      if (!testIsRunning) {
-        setTimeout(() => {
-          testIsRunning = true;
-          show = true;
-          document.getElementById("messeage").innerText = `Фігура ${iter +
-            1} з ${repeats}`;
-          const sh = performance.now();
-          showFigure(figures[iter], data.figures.thickness);
-          console.log(performance.now() - sh);
-          results.times[iter] = { show: performance.now() };
-        }, 1200);
-      }
       if (show) {
         results.times[iter].hide = performance.now();
         show = false;
@@ -63,6 +51,18 @@ async function start() {
             results.times[iter] = { show: performance.now() };
           }, pause);
         }
+      }
+      if (!testIsRunning) {
+        setTimeout(() => {
+          testIsRunning = true;
+          show = true;
+          document.getElementById("messeage").innerText = `Фігура ${iter +
+            1} з ${repeats}`;
+          const sh = performance.now();
+          showFigure(figures[iter], data.figures.thickness);
+          console.log(performance.now() - sh);
+          results.times[iter] = { show: performance.now() };
+        }, 1200);
       }
     }
   }
