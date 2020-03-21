@@ -27,7 +27,8 @@ async function start() {
   function onePress(event) {
     if (event.code == "Space") {
       if (show) {
-        results.times[iter].hide = performance.now();
+        const time = performance.now();
+        results.times[iter].hide = time; 
         show = false;
         hideFigure(figures[iter]);
         const pause = getRandomInt(
@@ -48,7 +49,8 @@ async function start() {
               1} з ${repeats}`;
             document.addEventListener("keydown", onePress);
             showFigure(figures[iter], data.figures.thickness);
-            results.times[iter] = { show: performance.now() };
+            const time = performance.now();
+            results.times[iter] = { show: time };
           }, pause);
         }
       }
