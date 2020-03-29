@@ -10,6 +10,7 @@ function createWindow() {
     width: 1040,
     height: 800,
     icon: "./img/logo5.ico",
+    title : "Click time",
     webPreferences: {
       nodeIntegration: true
     }
