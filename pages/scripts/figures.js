@@ -23,14 +23,15 @@ async function start() {
   let unpressTwo = true;
   const results = { times: {} };
 
-  document.addEventListener("keydown", event => {
-    console.log(event.code);
-  });
+  // document.addEventListener("keydown", event => {
+  //   console.log(event.code);
+  // });
 
   // console.log("клавіша K натиснута");
   document.addEventListener("keydown", onePress);
   function onePress(event) {
-    if (event.code == "ShiftRight") {
+    // KeyK ShiftRight
+    if (event.code == "KeyK") {
       unpressOne = false;
       if (!testIsRunning && !begin) {
         testIsRunning = true;
@@ -52,25 +53,8 @@ async function start() {
         };
       }
     }
-  }
-  // console.log("клавіша K відпущена");
-  document.addEventListener("keyup", oneUnPress);
-  function oneUnPress(event) {
-    unpressOne = true;
-    //ShiftRight Enter
-    if (event.code == "ShiftRight") {
-      if (show && unpressTwo) {
-        results.times[iter].sensor = performance.now();
-        document.getElementById("attention-message").innerText =
-          "Необхідно натиснути О клавішу";
-      }
-    }
-  }
-  // console.log("клавіша J натиснута");
-  document.addEventListener("keydown", twoPress);
-  function twoPress(event) {
-    //Slash Quote
-    if (event.code == "Slash") {
+    //Slash Quote KeyJ
+    if (event.code == "KeyJ") {
       unpressTwo = false;
       if (show && unpressOne) {
         show = false;
@@ -81,10 +65,19 @@ async function start() {
       }
     }
   }
-  // console.log("клавіша J відпущена");
-  document.addEventListener("keyup", twoUnPress);
-  function twoUnPress(event) {
-    if (event.code == "Slash") {
+  // console.log("клавіша K відпущена");
+  document.addEventListener("keyup", oneUnPress);
+  function oneUnPress(event) {
+    //ShiftRight Enter KeyK
+    if (event.code == "KeyK") {
+      unpressOne = true;
+      if (show && unpressTwo) {
+        results.times[iter].sensor = performance.now();
+        document.getElementById("attention-message").innerText =
+          "Необхідно натиснути О клавішу";
+      }
+    }
+    if (event.code == "KeyJ") {
       unpressTwo = true;
       if (!show) {
         const pause = getRandomInt(
@@ -98,9 +91,9 @@ async function start() {
             "Відпустіть всі клавіші";
           document.getElementById("messeage").innerText = "Тест завершено";
           document.removeEventListener("keydown", onePress);
-          document.removeEventListener("keydown", twoPress);
+          // document.removeEventListener("keydown", twoPress);
           document.removeEventListener("keyup", oneUnPress);
-          document.removeEventListener("keyup", twoUnPress);
+          // document.removeEventListener("keyup", twoUnPress);
           calculateResult(results); // calculate
           console.log(results);
           localStorage.setItem("results", JSON.stringify(results));
@@ -116,6 +109,12 @@ async function start() {
       }
     }
   }
+  // // console.log("клавіша J натиснута");
+  // document.addEventListener("keydown", twoPress);
+  // function twoPress(event) {}
+  // // console.log("клавіша J відпущена");
+  // document.addEventListener("keyup", twoUnPress);
+  // function twoUnPress(event) {}
 }
 
 function showFigure(type, thickness) {
