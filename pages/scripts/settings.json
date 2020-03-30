@@ -1,23 +1,13 @@
 {
   "common": {
-    "show_time": {
-      "from": 700,
-      "for": 900
-    },
     "pause": {
       "from": 500,
       "for": 1530
     },
-    "numbers": {
-      "from": 20,
-      "for": 21
-    }
+    "numbers": 12
   },
   "figures": {
-    "thickness": {
-      "from": 20,
-      "for": 22
-    }
+    "thickness": 50
   },
   "words": [
     "Хлопець",

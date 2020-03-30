@@ -1,15 +1,13 @@
-const files = require(require("path").join(__dirname, "../scripts","files.js").replace(/\\/g, '/'));
+const files = require(require("path")
+  .join(__dirname, "../scripts", "files.js")
+  .replace(/\\/g, "/"));
 
 async function start() {
   const data = await files.getData();
-  const repeats = getRandomInt(
-    data.common.numbers.from,
-    data.common.numbers.for
-  );
   let iter = 0;
   // 0 - square, 1 - circle, 2 - triangle
   const figures = [];
-  for (let i = 0; i < repeats; i++) {
+  for (let i = 0; i < data.common.numbers; i++) {
     figures.push(getRandomInt(0, 2));
   }
   console.log(figures);
@@ -24,10 +22,15 @@ async function start() {
   let unpressOne = false;
   let unpressTwo = true;
   const results = { times: {} };
+
+  document.addEventListener("keydown", event => {
+    console.log(event.code);
+  });
+
   // console.log("клавіша K натиснута");
   document.addEventListener("keydown", onePress);
   function onePress(event) {
-    if (event.code == "KeyK") {
+    if (event.code == "ShiftRight") {
       unpressOne = false;
       if (!testIsRunning && !begin) {
         testIsRunning = true;
@@ -37,8 +40,9 @@ async function start() {
       if (begin && unpressTwo && !show) {
         begin = false;
         show = true;
-        document.getElementById("messeage").innerText = `Фігура ${iter +
-          1} з ${repeats}`;
+        document.getElementById("messeage").innerText = `Фігура ${iter + 1} з ${
+          data.common.numbers
+        }`;
         document.getElementById("attention-message").style.opacity = "1";
         document.getElementById("attention-message").innerText =
           "Необхідно відтиснути Л клавішу";
@@ -53,7 +57,8 @@ async function start() {
   document.addEventListener("keyup", oneUnPress);
   function oneUnPress(event) {
     unpressOne = true;
-    if (event.code == "KeyK") {
+    //ShiftRight Enter
+    if (event.code == "ShiftRight") {
       if (show && unpressTwo) {
         results.times[iter].sensor = performance.now();
         document.getElementById("attention-message").innerText =
@@ -64,7 +69,8 @@ async function start() {
   // console.log("клавіша J натиснута");
   document.addEventListener("keydown", twoPress);
   function twoPress(event) {
-    if (event.code == "KeyJ") {
+    //Slash Quote
+    if (event.code == "Slash") {
       unpressTwo = false;
       if (show && unpressOne) {
         show = false;
@@ -78,16 +84,16 @@ async function start() {
   // console.log("клавіша J відпущена");
   document.addEventListener("keyup", twoUnPress);
   function twoUnPress(event) {
-    if (event.code == "KeyJ") {
+    if (event.code == "Slash") {
       unpressTwo = true;
       if (!show) {
         const pause = getRandomInt(
           data.common.pause.from,
           data.common.pause.for
         );
-        if (iter + 1 == repeats) {
+        if (iter + 1 == data.common.numbers) {
           results.end = performance.now();
-          results.repeats = repeats;
+          results.repeats = data.common.numbers;
           document.getElementById("attention-message").innerText =
             "Відпустіть всі клавіші";
           document.getElementById("messeage").innerText = "Тест завершено";
@@ -119,28 +125,19 @@ function showFigure(type, thickness) {
       document.getElementById("square").style.display = "block";
       document
         .getElementById("square")
-        .style.setProperty(
-          "--border-thickness",
-          getRandomInt(thickness.from, thickness.for) + "px"
-        );
+        .style.setProperty("--border-thickness", thickness + "px");
       break;
     case 1:
       document.getElementById("circle").style.display = "block";
       document
         .getElementById("circle")
-        .style.setProperty(
-          "--border-thickness",
-          getRandomInt(thickness.from, thickness.for) + "px"
-        );
+        .style.setProperty("--border-thickness", thickness + "px");
       break;
     case 2:
       document.getElementById("triangle").style.display = "block";
       document
         .getElementById("triangle")
-        .style.setProperty(
-          "--border-thickness",
-          getRandomInt(thickness.from, thickness.for) + "px"
-        );
+        .style.setProperty("--border-thickness", thickness + "px");
       break;
   }
 }

@@ -163,7 +163,7 @@ input[type="number"]::-webkit-inner-spin-button:active{
 
 /* -- style for block common settings -- */
 .common_settings > .settings_content_wrap{
-    justify-content: space-between;
+    justify-content:  space-around;
     margin-left: 40px;
     margin-right: 40px;
 }

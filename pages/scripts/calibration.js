@@ -28,7 +28,7 @@ async function start() {
             document.getElementById(
               "messeage"
             ).innerText = `Результат ${clicks}  середній час натиску ${avTime.toFixed(3)}`;
-          }, 3000);
+          }, 10000);
         }, 500);
       } else {
         clicks++;
