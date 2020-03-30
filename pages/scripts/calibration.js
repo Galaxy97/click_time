@@ -1,9 +1,9 @@
 async function start() {
   document.getElementById("messeage").style.opacity = "1";
   document.getElementById("messeage").innerText =
-    "Натисніть клавішу стрілку вних якумога більше разів за n секунд";
+    "Натисніть клавішу \"стрілка вниз\" як омога більше разів за 10 секунд";
   document.getElementById("attention-message").innerText =
-    "для початку натисніть стрілку вниз";
+    "Час відраховуватиметься від вашого першого натиску";
   document.getElementById("attention-message").style.opacity = "1";
 
   let activeTest = false;
@@ -23,7 +23,7 @@ async function start() {
             document.removeEventListener("keydown", onePress);
             document.getElementById(
               "attention-message"
-            ).innerText = `тест завершено`;
+            ).innerText = `Tест завершено`;
             const avTime =  (results.end - results.start) / clicks;
             document.getElementById(
               "messeage"

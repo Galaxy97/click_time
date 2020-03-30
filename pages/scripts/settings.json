@@ -4,7 +4,14 @@
       "from": 500,
       "for": 1530
     },
+<<<<<<< HEAD
     "numbers": 12
+=======
+    "numbers": {
+      "from": 7,
+      "for": 11
+    }
+>>>>>>> 727c170e76cf69003cd95d4b16c144c9879a34e8
   },
   "figures": {
     "thickness": 50
