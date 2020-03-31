@@ -123,7 +123,6 @@ async function start() {
 }
 
 function showFigure(type, thickness) {
-  console.log(thickness);
   switch (type) {
     case 0:
       document.getElementById("square").style.display = "block";

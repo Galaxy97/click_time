@@ -4,7 +4,7 @@ function calc(documentId, results) {
   const table = document.createElement("table");
   table.style.color = "white";
   table.append(createHeaders());
-  createBody(table, results.times);
+  createBody(table, results.times, results.repeats);
   document.getElementById(documentId).append(table);
   const div = document.createElement("div");
   div.style.color = "white";
@@ -56,7 +56,12 @@ function createHeaders() {
   return tr;
 }
 
-function createBody(table, data) {
+function createBody(table, data, repeats) {
+  if (Object.keys(data).length !== repeats) {
+    alert("не дотримано умови тестування");
+    document.location.href = "./index.html";
+    // return false;
+  }
   Object.keys(data).forEach(key => {
     const tr = document.createElement("tr");
     const num = document.createElement("td");
