@@ -20,7 +20,8 @@
         <div class="main_content">
           <div class="form">
             <div class="form__group field">
-              <input type="input"
+              <input
+                type="input"
                 class="form__field"
                 placeholder="Прізвище"
                 name="surname"
@@ -50,15 +51,19 @@
               <label>Стать</label>
               <div class="gender_selector">
                 <div class="gender_wrap">
-                  <input type='radio' value='man' id='man' name='gender'>
+                  <input type="radio" value="man" id="man" name="gender" />
                   <span class="man"></span>
                 </div>
                 <div class="gender_wrap">
-                  <input type='radio' value='woman' id='woman' name='gender'>
+                  <input type="radio" value="woman" id="woman" name="gender" />
                   <span class="woman"></span>
-                </div>               
+                </div>
               </div>
               <div id="gender_errors_message">Виберіть стать!!!</div>
+            </div>
+            <div style="display: flex;">
+              <div>Тестовий режим?</div>
+              <input type="checkbox" id="mode" name="mode" />
             </div>
             <div class="start_button_wrap">
               <div id="start_button" onclick="justDoIt()">Розпочати</div>
@@ -71,8 +76,8 @@
       function justDoIt() {
         const surname = document.getElementById("surname").value;
         const name = document.getElementById("name").value;
-        const date = document.getElementById("date").value
-        const radios = document.getElementsByName('gender');
+        const date = document.getElementById("date").value;
+        const radios = document.getElementsByName("gender");
         let gender = 0;
         for (let i = 0; i < radios.length; i++) {
           if (radios[i].checked) {
@@ -115,8 +120,12 @@
         }
         localStorage.setItem(
           "user",
-          JSON.stringify({ surname, name, date, gender})
+          JSON.stringify({ surname, name, date, gender })
         );
+        // mode of test
+        if (document.getElementById("mode").checked) {
+          localStorage.setItem("testMode", true);
+        }
         switch (localStorage.getItem("typeTest")) {
           case "fig":
             document.location.href = "./figures.html";
@@ -138,10 +147,9 @@
       if (data.name) document.getElementById("name").value = data.name;
       if (data.date) document.getElementById("date").value = data.date;
       if (data.gender) {
-        const radios = document.getElementsByName('gender');
+        const radios = document.getElementsByName("gender");
         for (let i = 0; i < radios.length; i++) {
           if (radios[i].value == data.gender) {
-
             radios[i].checked = true;
             break;
           }

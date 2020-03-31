@@ -4,6 +4,8 @@ const files = require(require("path")
 
 async function start() {
   const data = await files.getData();
+  const testMode = localStorage.getItem("testMode") === "true" ? true : false;
+  localStorage.setItem("testMode", false);
   let iter = 0;
   // 0 - square, 1 - circle, 2 - triangle
   const figures = [];
@@ -23,14 +25,11 @@ async function start() {
   let unpressTwo = true;
   const results = { times: {} };
 
-  document.addEventListener("keydown", event => {
-    console.log(event.code);
-  });
-
   // console.log("клавіша K натиснута");
   document.addEventListener("keydown", onePress);
   function onePress(event) {
-    if (event.code == "ShiftRight") {
+    // ShiftRight KeyK KeyJ
+    if (event.code == "KeyK") {
       unpressOne = false;
       if (!testIsRunning && !begin) {
         testIsRunning = true;
@@ -43,9 +42,11 @@ async function start() {
         document.getElementById("messeage").innerText = `Фігура ${iter + 1} з ${
           data.common.numbers
         }`;
-        document.getElementById("attention-message").style.opacity = "1";
-        document.getElementById("attention-message").innerText =
-          "Необхідно відтиснути Л клавішу";
+        if (testMode) {
+          document.getElementById("attention-message").style.opacity = "1";
+          document.getElementById("attention-message").innerText =
+            "Необхідно відтиснути Л клавішу";
+        }
         showFigure(figures[iter], data.figures.thickness);
         results.times[iter] = {
           begin: performance.now()
@@ -58,11 +59,12 @@ async function start() {
   function oneUnPress(event) {
     unpressOne = true;
     //ShiftRight Enter
-    if (event.code == "ShiftRight") {
+    if (event.code == "KeyK") {
       if (show && unpressTwo) {
         results.times[iter].sensor = performance.now();
-        document.getElementById("attention-message").innerText =
-          "Необхідно натиснути О клавішу";
+        if (testMode)
+          document.getElementById("attention-message").innerText =
+            "Необхідно натиснути О клавішу";
       }
     }
   }
@@ -70,21 +72,22 @@ async function start() {
   document.addEventListener("keydown", twoPress);
   function twoPress(event) {
     //Slash Quote
-    if (event.code == "Slash") {
+    if (event.code == "KeyJ") {
       unpressTwo = false;
       if (show && unpressOne) {
         show = false;
         hideFigure(figures[iter]);
         results.times[iter].moving = performance.now();
-        document.getElementById("attention-message").innerText =
-          "Необхідно відтиснути О клавішу";
+        if (testMode)
+          document.getElementById("attention-message").innerText =
+            "Необхідно відтиснути О клавішу";
       }
     }
   }
   // console.log("клавіша J відпущена");
   document.addEventListener("keyup", twoUnPress);
   function twoUnPress(event) {
-    if (event.code == "Slash") {
+    if (event.code == "KeyJ") {
       unpressTwo = true;
       if (!show) {
         const pause = getRandomInt(
@@ -106,8 +109,9 @@ async function start() {
           localStorage.setItem("results", JSON.stringify(results));
           document.location.href = "./showRes.html";
         } else {
-          document.getElementById("attention-message").innerText =
-            "Необхідно тримати Л клавішу";
+          if (testMode)
+            document.getElementById("attention-message").innerText =
+              "Необхідно тримати Л клавішу";
           iter++;
           setTimeout(() => {
             begin = true;
